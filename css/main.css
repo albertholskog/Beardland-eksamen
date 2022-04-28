@@ -1,0 +1,19 @@
+:root {
+  --primary: #e9e4d8;
+  --dark: #181d26;
+  --light: #c39316;
+}
+@font-face {
+  font-family: "northash";
+  src: url(/font/Logo/Northash-K7v2D.ttf) format("truetype");
+}
+@font-face {
+  font-family: "BebasNeue";
+  src: url(/font/subheader/BebasNeue-Regular.ttf) format("truetype");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
