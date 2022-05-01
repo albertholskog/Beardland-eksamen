@@ -1,17 +1,17 @@
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".header-nav-menu");
+// const hamburger = document.querySelector(".hamburger");
+// const navMenu = document.querySelector(".header-nav-menu");
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-});
+// hamburger.addEventListener("click", () => {
+//   hamburger.classList.toggle("active");
+//   navMenu.classList.toggle("active");
+// });
 
-document.querySelectorAll(".nav-link").forEach((e) =>
-  e.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-  })
-);
+// document.querySelectorAll(".nav-link").forEach((e) =>
+//   e.addEventListener("click", () => {
+//     hamburger.classList.remove("active");
+//     navMenu.classList.remove("active");
+//   })
+// );
 // --------function for henting av apiCall----------------
 const url = "https://beardland.hols.no/wp-json/wp/v2/posts/";
 
@@ -55,9 +55,9 @@ async function listArticles() {
   try {
     const blogData = await apiCall(url);
     for (let i = 0; i < blogData.length; i++) {
-      listPost.innerHTML += ` <div class="card">
+      listPost.innerHTML += ` <div class="card"><a href="">
                                         <h2>${blogData[i].title.rendered}</h>
-                                        <img src="${blogData[i].featured_media_src_url}" alt="" />
+                                        <img src="${blogData[i].featured_media_src_url}" alt="" /></a>
                                         <button class="btn-readmore">Read more</button>
                                     </div>`;
     }
@@ -65,3 +65,21 @@ async function listArticles() {
 }
 
 listArticles();
+
+// https://beardland.hols.no/wp-json/wp/v2/posts/<id>
+
+const queryString = document.location.search;
+const params = new URLSearchParams(queryString);
+
+const id = params.get("id");
+console.log(id);
+
+console.log(params);
+
+const specContainer = document.querySelector(".specific-container");
+
+async function articleSpesific() {
+  try {
+    const blogData = await apiCall(url);
+  } catch (e) {}
+}
