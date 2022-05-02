@@ -55,11 +55,11 @@ async function listArticles() {
   try {
     const blogData = await apiCall(url);
     for (let i = 0; i < blogData.length; i++) {
-      listPost.innerHTML += ` <div class="card"><a href="">
-                                        <h2>${blogData[i].title.rendered}</h>
-                                        <img src="${blogData[i].featured_media_src_url}" alt="" /></a>
-                                        <button class="btn-readmore">Read more</button>
-                                    </div>`;
+      listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
+                                  <h2>${blogData[i].title.rendered}</h>
+                                  <img src="${blogData[i].featured_media_src_url}" alt="" /></a>
+                                  <button class="btn-readmore">Read more</button>
+                              </div>`;
     }
   } catch (e) {}
 }
@@ -70,16 +70,27 @@ listArticles();
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
+console.log(params);
 
 const id = params.get("id");
 console.log(id);
-
-console.log(params);
+const idPost = "https://beardland.hols.no/wp-json/wp/v2/posts/" + id;
+console.log(idPost)
 
 const specContainer = document.querySelector(".specific-container");
 
+
 async function articleSpesific() {
   try {
-    const blogData = await apiCall(url);
+    const blogData = await apiCall(idPost);
+    console.log(blogData)
+     console.log("hei")
+      specContainer.innerHTML += `<div><img src="${blogData.featured_media_src_url}" alt=""></div>
+                                  <div>
+                                  <h2>${blogData.title.rendered}</h2>
+                                  <p>${blogData.acf.articles}</p>
+                                  </div> ` 
+      
   } catch (e) {}
 }
+articleSpesific()
