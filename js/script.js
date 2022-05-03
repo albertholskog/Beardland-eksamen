@@ -75,22 +75,19 @@ console.log(params);
 const id = params.get("id");
 console.log(id);
 const idPost = "https://beardland.hols.no/wp-json/wp/v2/posts/" + id;
-console.log(idPost)
+console.log(idPost);
 
 const specContainer = document.querySelector(".specific-container");
-
 
 async function articleSpesific() {
   try {
     const blogData = await apiCall(idPost);
-    console.log(blogData)
-     console.log("hei")
-      specContainer.innerHTML += `<div><img src="${blogData.featured_media_src_url}" alt=""></div>
+    console.log(blogData);
+    specContainer.innerHTML += `<div><img src="${blogData.featured_media_src_url}" alt=""></div>
                                   <div>
                                   <h2>${blogData.title.rendered}</h2>
                                   <p>${blogData.acf.articles}</p>
-                                  </div> ` 
-      
+                                  </div> `;
   } catch (e) {}
 }
-articleSpesific()
+articleSpesific();

@@ -9,16 +9,48 @@ max-width til det samme som den oppe og høyde auto */
   overflow: hidden;
   max-width: 1400px;
   position: relative;
+  margin: auto;
 }
 .carousel-post,
 .carousel-post-hidden {
   display: none;
 }
-.carousel-post {
+.carousel-post img {
   width: 100%;
   max-width: 1400px;
-  height: 500px;
+  height: 450px;
+  object-fit: cover;
 }
 .carousel-post-visible {
   display: block;
+}
+.carousel-button-post {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+.carousel-button-post button {
+  height: 50px;
+  width: 50px;
+  border: 1px solid var(--primary);
+  background-color: var(--dark);
+  color: var(--primary);
+}
+.carousel-button-left {
+  margin-left: 10px;
+}
+.carousel-button-right {
+  margin-right: 10px;
+}
+.carousel-title {
+  position: absolute;
+  top: 85%;
+  width: 100%;
+  background-color: rgba(24, 29, 38, 0.8);
+  color: var(--light);
+  text-align: center;
+  padding: 18px 0;
 }
