@@ -66,6 +66,8 @@ const carouselDott = document.querySelector(".carousel-dott");
 const selectetDott = document.querySelector(".dott-selected");
 const dott = Array.from(carouselDott.children);
 console.log(dott);
+
+carouselDott.addEventListener("click", () => {});
 // ------------------------------------
 
 leftButton.addEventListener("click", () => {
