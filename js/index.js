@@ -1,4 +1,3 @@
-
 // ---------------hamburger----------------
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".header-nav-menu");
@@ -25,37 +24,34 @@ async function apiCall(url) {
   } catch (e) {}
 }
 
-
-
-
-const carouselContainerSlideOne =document.querySelector(".slide1")
-const carouselContainerSlideTwo =document.querySelector(".slide2")
-const carouselContainerSlideThree =document.querySelector(".slide3")
-const carouselContainerSlideFour =document.querySelector(".slide4")
+const carouselContainerSlideOne = document.querySelector(".slide1");
+const carouselContainerSlideTwo = document.querySelector(".slide2");
+const carouselContainerSlideThree = document.querySelector(".slide3");
+const carouselContainerSlideFour = document.querySelector(".slide4");
 
 async function carouselPostApiCall() {
   try {
     const blogData = await apiCall(url);
     for (let i = 0; i < blogData.length; i++) {
       if (i === 0) {
-        console.log(blogData[i]);
         carouselContainerSlideOne.innerHTML += `
                                                   <img src="${blogData[i].featured_media_src_url}" alt="" />
-                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`
+                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`;
       } else if (i === 1) {
         carouselContainerSlideTwo.innerHTML += `
                                                   <img src="${blogData[i].featured_media_src_url}" alt="" />
-                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`
-      }else if (i === 2) {
+                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`;
+      } else if (i === 2) {
         carouselContainerSlideThree.innerHTML += `
                                                   <img src="${blogData[i].featured_media_src_url}" alt="" />
-                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`
-      }else if (i === 3) {
+                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`;
+      } else if (i === 3) {
         carouselContainerSlideFour.innerHTML += `
                                                   <img src="${blogData[i].featured_media_src_url}" alt="" />
-                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`
-      }}
-    }catch (e) {}
+                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`;
+      }
+    }
+  } catch (e) {}
 }
 carouselPostApiCall();
 
@@ -64,6 +60,13 @@ const slides = document.querySelectorAll(".carousel-post");
 const totalSlides = slides.length;
 const leftButton = document.querySelector(".carousel-button-left");
 const rightButton = document.querySelector(".carousel-button-right");
+// test av nav dott---------------
+
+const carouselDott = document.querySelector(".carousel-dott");
+const selectetDott = document.querySelector(".dott-selected");
+const dott = Array.from(carouselDott.children);
+console.log(dott);
+// ------------------------------------
 
 leftButton.addEventListener("click", () => {
   prevSlide();
@@ -106,26 +109,22 @@ const prevSlide = () => {
 const containerPrim = document.querySelector(".prim-container");
 const containerSecondary = document.querySelector(".secondary-container");
 
-
 async function htmlCreate() {
-    try {
-      const blogData = await apiCall(url);
-      containerPrim.innerHTML += ` <div>
+  try {
+    const blogData = await apiCall(url);
+    containerPrim.innerHTML += ` <div>
                                         <h2>${blogData[4].title.rendered}</h2>
                                         <p>${blogData[4].acf.articles}</p>
                                         <button class="btn-readmore">Read more</button>
                                     </div>
                                     <div class="img-container"><img src="${blogData[4].featured_media_src_url}" alt=""></div>`;
-      containerSecondary.innerHTML += `
+    containerSecondary.innerHTML += `
                                     <div class="img-container"><img src="${blogData[5].featured_media_src_url}" alt=""></div>
                                     <div>
                                         <h2>${blogData[5].title.rendered}</h2>
                                         <p>${blogData[5].acf.articles}</p>
                                         <button class="btn-readmore">Read more</button>
                                     </div>`;
-    } catch (e) {}
-  }
-  htmlCreate();
-
-
-
+  } catch (e) {}
+}
+htmlCreate();

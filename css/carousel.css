@@ -6,13 +6,12 @@ pos rela
 på bilde sett width 100% 
 max-width til det samme som den oppe og høyde auto */
 
-
 .carousel-container {
-overflow: hidden;
-max-width: 1400px;
-position: relative;
-margin: auto;
-} 
+  overflow: hidden;
+  max-width: 1400px;
+  position: relative;
+  margin: auto;
+}
 
 .carousel-post,
 .carousel-post-hidden {
@@ -57,4 +56,23 @@ margin: auto;
   color: var(--light);
   text-align: center;
   padding: 18px 0;
-}  
+}
+.carousel-dott {
+  width: 100%;
+  padding: 20px 0;
+  position: absolute;
+  top: 75%;
+  text-align: end;
+}
+.dott {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  margin-right: 30px;
+  display: inline-block;
+  background-color: var(--dark);
+}
+.dott-selected {
+  background-color: var(--light);
+}
