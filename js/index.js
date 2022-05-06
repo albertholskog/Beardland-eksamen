@@ -61,13 +61,22 @@ const totalSlides = slides.length;
 const leftButton = document.querySelector(".carousel-button-left");
 const rightButton = document.querySelector(".carousel-button-right");
 // test av nav dott---------------
-
+let dottPos = 0;
 const carouselDott = document.querySelector(".carousel-dott");
 const selectetDott = document.querySelector(".dott-selected");
 const dott = Array.from(carouselDott.children);
+const testDott = document.querySelectorAll(".dott")
 console.log(dott);
 
-carouselDott.addEventListener("click", () => {});
+
+
+// når jeg trykker på en av dot så skifter de farge 
+
+
+// når dott blir tykket bytter man bilde 
+
+// når man trykker på knappene skifter dott 
+
 // ------------------------------------
 
 leftButton.addEventListener("click", () => {
@@ -82,6 +91,7 @@ const updateSlides = () => {
     const slideArr = slides[i];
     slideArr.classList.remove("carousel-post-visible");
     slideArr.classList.add("carousel-post-hidden");
+
   }
   slides[slidePos].classList.add("carousel-post-visible");
 };
