@@ -31,12 +31,23 @@ async function listArticles() {
     const blogData = await apiCall(url);
     for (let i = 0; i < blogData.length; i++) {
       listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
-                                  <h2>${blogData[i].title.rendered}</h>
-                                  <img src="${blogData[i].featured_media_src_url}" alt="" /></a>
+                                  <h2>${blogData[i].title.rendered}</h2>
                                   <button class="btn-readmore">Read more</button>
+                                  <img src="${blogData[i].featured_media_src_url}" alt="" /></a>
                               </div>`;
     }
+    console.log(blogData[i].title.rendered);
   } catch (e) {}
 }
 
 listArticles();
+
+const loadMoreUrl = "https://beardland.hols.no/wp-json/wp/v2/posts/?per_page14";
+console.log(loadMoreUrl);
+
+async function loadMore() {
+  try {
+    const blogData = await apiCall(loadMore);
+  } catch (e) {}
+}
+loadMore();
