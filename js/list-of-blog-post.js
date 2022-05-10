@@ -32,8 +32,8 @@ async function listArticles() {
     for (let i = 0; i < blogData.length; i++) {
       listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
                                   <h2>${blogData[i].title.rendered}</h2>
-                                  <button class="btn-readmore">Read more</button>
-                                  <img src="${blogData[i].featured_media_src_url}" alt="" /></a>
+                                  <img src="${blogData[i].featured_media_src_url}" alt="" />
+                                  <button class="btn-readmore-list">Read more</button></a>
                               </div>`;
     }
     console.log(blogData[i].title.rendered);
@@ -42,35 +42,30 @@ async function listArticles() {
 
 listArticles();
 
-
 // loadmore api call -----------------------------
 
-const loadMorebutton = document.querySelector(".load-more")
-const loadMoreUrl = "https://beardland.hols.no/wp-json/wp/v2/posts/?per_page=14";
+const loadMorebutton = document.querySelector(".load-more");
+const loadMoreUrl =
+  "https://beardland.hols.no/wp-json/wp/v2/posts/?per_page=14";
 console.log(loadMoreUrl);
 
-loadMorebutton.addEventListener("click",() =>{
-  loadMore()
-})
-
+loadMorebutton.addEventListener("click", () => {
+  loadMore();
+});
 
 async function loadMore() {
   try {
     const blogData = await apiCall(loadMoreUrl);
-for (let i = 10; i < blogData.length; i++) {
-  const element = blogData[i];
-  console.log(blogData[i])
-  listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
+    for (let i = 10; i < blogData.length; i++) {
+      const element = blogData[i];
+      console.log(blogData[i]);
+      listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
                                     <h2>${blogData[i].title.rendered}</h2>
-                                    <button class="btn-readmore">Read more</button>
-                                    <img src="${blogData[i].featured_media_src_url}" alt="" /></a>
-                                </div>`
+                                    <img src="${blogData[i].featured_media_src_url}" alt="" />
+                                    <button class="btn-readmore-list">Read more</button></a>
+                                </div>`;
 
-  loadMorebutton.style.display = "none"
+      loadMorebutton.style.display = "none";
+    }
+  } catch (e) {}
 }
-
-  } catch (e) {
-
-  }
-}
-
