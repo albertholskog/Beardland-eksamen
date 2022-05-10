@@ -3,4 +3,5 @@ footer {
   justify-content: space-between;
   align-items: center;
   background-color: var(--dark);
+  margin-top: 2vh;
 }

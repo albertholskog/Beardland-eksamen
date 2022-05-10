@@ -1,13 +1,15 @@
 header {
   background-color: var(--dark);
+  margin-bottom: 2vh;
 }
 li {
   list-style: none;
 }
+h1 {
+  color: var(--light);
+  letter-spacing: 1px;
+}
 a {
-  font-family: "BebasNeue";
-  font-size: 1.25rem;
-  color: var(--primary);
   text-decoration: none;
 }
 .header-navbar {
@@ -30,13 +32,16 @@ a {
 .logo-img {
   width: max(8vw, 80px);
 }
-.header-logo-name {
+.header-logo-name h1 {
   font-family: "northash";
   font-size: 2rem;
   margin-left: 10px;
 }
-.nav-link {
+.header-nav-item a {
   transition: 0.7s ease;
+  font-family: "BebasNeue";
+  font-size: 1.25rem;
+  color: var(--primary);
 }
 .nav-link:hover {
   color: var(--light);

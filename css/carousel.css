@@ -7,6 +7,7 @@ på bilde sett width 100%
 max-width til det samme som den oppe og høyde auto */
 
 .carousel-container {
+  display: none;
   overflow: hidden;
   max-width: 1400px;
   position: relative;
@@ -75,4 +76,12 @@ max-width til det samme som den oppe og høyde auto */
 }
 .dott-selected {
   background-color: var(--light);
+}
+@media screen and (min-width: 789px) {
+  .carousel-container {
+    display: block;
+  }
+  .mobile-img {
+    display: none;
+  }
 }

@@ -17,13 +17,98 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+html {
+  height: 100%;
+}
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   background-color: var(--primary);
+}
+p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--dark);
+}
+h2 {
+  font-family: "BebasNeue";
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--dark);
 }
 .formErr {
   display: none;
 }
-
 .img-scale {
-  transform: scale(1.5)
+  transform: scale(1.5);
+}
+/* ---------------------index page ---------------- */
+.mobile-img {
+  max-width: 100vw;
+}
+.mobile-img img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+.img-container {
+  max-width: 100%;
+}
+.img-container img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  object-fit: cover;
+}
+.prim-container,
+.secondary-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+.prim-container h2,
+.prim-container p,
+.secondary-container h2,
+.secondary-container p {
+  padding: 20px;
+  max-width: 400px;
+}
+.prim-container {
+  background-color: var(--light);
+}
+.btn-readmore {
+  background-color: transparent;
+  border: 2px solid var(--dark);
+  padding: 10px 20px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.btn-readmore a {
+  font-size: 1.2rem;
+  font-family: "BebasNeue";
+  color: var(--dark);
+}
+
+@media screen and (min-width: 789px) {
+  .prim-container,
+  .secondary-container {
+    display: grid;
+    padding: 20px 20px 20px 0;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "one two";
+  }
+  .prim-container :nth-child(1),
+  .secondary-container:nth-child(1) {
+    grid-area: one;
+  }
+  .prim-container :nth-child(2),
+  .secondary-container:nth-child(2) {
+    grid-area: two;
+  }
 }

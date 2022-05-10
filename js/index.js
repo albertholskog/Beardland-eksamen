@@ -65,17 +65,14 @@ let dottPos = 0;
 const carouselDott = document.querySelector(".carousel-dott");
 const selectetDott = document.querySelector(".dott-selected");
 const dott = Array.from(carouselDott.children);
-const testDott = document.querySelectorAll(".dott")
+const testDott = document.querySelectorAll(".dott");
 console.log(dott);
 
+// når jeg trykker på en av dot så skifter de farge
 
+// når dott blir tykket bytter man bilde
 
-// når jeg trykker på en av dot så skifter de farge 
-
-
-// når dott blir tykket bytter man bilde 
-
-// når man trykker på knappene skifter dott 
+// når man trykker på knappene skifter dott
 
 // ------------------------------------
 
@@ -91,7 +88,6 @@ const updateSlides = () => {
     const slideArr = slides[i];
     slideArr.classList.remove("carousel-post-visible");
     slideArr.classList.add("carousel-post-hidden");
-
   }
   slides[slidePos].classList.add("carousel-post-visible");
 };
@@ -118,24 +114,18 @@ const prevSlide = () => {
 //   nextSlide();
 // }, 7000);
 
-const containerPrim = document.querySelector(".prim-container");
 const containerSecondary = document.querySelector(".secondary-container");
 
 async function htmlCreate() {
   try {
     const blogData = await apiCall(url);
-    containerPrim.innerHTML += ` <div>
-                                        <h2>${blogData[4].title.rendered}</h2>
-                                        <p>${blogData[4].acf.articles}</p>
-                                        <button class="btn-readmore">Read more</button>
-                                    </div>
-                                    <div class="img-container"><img src="${blogData[4].featured_media_src_url}" alt=""></div>`;
+
     containerSecondary.innerHTML += `
                                     <div class="img-container"><img src="${blogData[5].featured_media_src_url}" alt=""></div>
                                     <div>
                                         <h2>${blogData[5].title.rendered}</h2>
                                         <p>${blogData[5].acf.articles}</p>
-                                        <button class="btn-readmore">Read more</button>
+                                        <button class="btn-readmore"><a href="">Read more</a></button>
                                     </div>`;
   } catch (e) {}
 }
