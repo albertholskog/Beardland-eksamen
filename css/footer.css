@@ -1,7 +1,27 @@
 footer {
+  background-color: var(--dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--dark);
-  margin-top: auto;
+  padding: 20px 8vw;
+}
+
+.fa-facebook-f,
+.fa-instagram {
+  font-size: 30px;
+  color: var(--primary);
+  margin: 0 10px;
+}
+.social-container h3,
+.footer-nav a {
+  font-family: "BebasNeue";
+  letter-spacing: 1.5px;
+  font-size: clamp(1rem, 2.5vw, 1.6rem);
+  font-weight: 500;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.footer-nav li {
+  margin: 5px;
 }

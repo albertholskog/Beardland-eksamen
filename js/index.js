@@ -34,21 +34,25 @@ async function carouselPostApiCall() {
     const blogData = await apiCall(url);
     for (let i = 0; i < blogData.length; i++) {
       if (i === 0) {
-        carouselContainerSlideOne.innerHTML += `
-                                                  <img src="${blogData[i].featured_media_src_url}" alt="" />
-                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`;
+        carouselContainerSlideOne.innerHTML += ` <a href="/blog-post-specific.html?id=${blogData[i].id}">
+                                                    <img src="${blogData[i].featured_media_src_url}" alt="" />
+                                                    <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
+                                                  </a>`;
       } else if (i === 1) {
-        carouselContainerSlideTwo.innerHTML += `
+        carouselContainerSlideTwo.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
                                                   <img src="${blogData[i].featured_media_src_url}" alt="" />
-                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`;
+                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
+                                                  </a>`;
       } else if (i === 2) {
-        carouselContainerSlideThree.innerHTML += `
+        carouselContainerSlideThree.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
                                                   <img src="${blogData[i].featured_media_src_url}" alt="" />
-                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`;
+                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
+                                                  </a>`;
       } else if (i === 3) {
-        carouselContainerSlideFour.innerHTML += `
+        carouselContainerSlideFour.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
                                                   <img src="${blogData[i].featured_media_src_url}" alt="" />
-                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>`;
+                                                  <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
+                                                  </a>`;
       }
     }
   } catch (e) {}
@@ -63,14 +67,14 @@ const rightButton = document.querySelector(".carousel-button-right");
 
 const carouselDott = document.querySelector(".carousel-dott");
 const dotts = Array.from(carouselDott.children);
-const dott = document.querySelector(".dott")
+const dott = document.querySelector(".dott");
 
-const updatedotts = () =>{
-  for (let dott of dotts){
-    dott.classList.remove("dott-selected")
+const updatedotts = () => {
+  for (let dott of dotts) {
+    dott.classList.remove("dott-selected");
   }
-  dotts[slidePos].classList.add("dott-selected")
-}
+  dotts[slidePos].classList.add("dott-selected");
+};
 
 leftButton.addEventListener("click", () => {
   prevSlide();
@@ -119,11 +123,17 @@ async function htmlCreate() {
     const blogData = await apiCall(url);
 
     containerSecondary.innerHTML += `
-                                    <div class="img-container"><img src="${blogData[5].featured_media_src_url}" alt=""></div>
+                                    <div class="img-container">
+                                        <a href="/blog-post-specific.html?id=${blogData[5].id}">
+                                          <img src="${blogData[5].featured_media_src_url}" alt="">
+                                        </a>
+                                    </div>
                                     <div>
                                         <h2>${blogData[5].title.rendered}</h2>
                                         <p>${blogData[5].acf.articles}</p>
-                                        <button class="btn-readmore"><a href="">Read more</a></button>
+                                        <button class="btn-readmore">
+                                          <a href="/blog-post-specific.html?id=${blogData[5].id}">Read more</a>
+                                        </button>
                                     </div>`;
   } catch (e) {}
 }

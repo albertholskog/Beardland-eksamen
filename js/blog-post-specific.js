@@ -24,28 +24,24 @@ async function apiCall(url) {
   } catch (e) {}
 }
 
-
-
-
-
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
 
-
 const id = params.get("id");
 const idPost = "https://beardland.hols.no/wp-json/wp/v2/posts/" + id;
-
 
 const specContainer = document.querySelector(".specific-container");
 
 async function articleSpesific() {
   try {
     const blogData = await apiCall(idPost);
-    
-    specContainer.innerHTML += `<div class="img-container"><img src="${blogData.featured_media_src_url}" alt=""></div>
-                                  <div>
-                                  <h2>${blogData.title.rendered}</h2>
-                                  <p>${blogData.acf.articles}</p>
+
+    specContainer.innerHTML += `  <div class="spec-img-container">
+                                    <img src="${blogData.featured_media_src_url}" alt="">
+                                  </div>
+                                  <div class= "spec-text">
+                                    <h2>${blogData.title.rendered}</h2>
+                                    <p>${blogData.acf.articles}</p>
                                   </div> 
                                   <div class="modal-container">
                                     <div class="modal">
@@ -53,20 +49,23 @@ async function articleSpesific() {
                                       <span class="close">&times;</span>
                                     </div>
                                   </div`;
-
-                  
   } catch (e) {}
-  const imgScale = document.querySelector(".img-container");
-    imgScale.addEventListener("click", () => {
-       imgScale.classList.add("img-scale");
-    }); 
-    window.addEventListener("click", () =>{
-      imgScale.classList.remove("img-scale")
-    })
-  
+  // const modalContainer = document.querySelector(".modal-container");
+  // const imgaeContainer = document.querySelector(".spec-img-container");
+  // const closeBtn = document.querySelector(".close");
+
+  // imgaeContainer.addEventListener("click", () => {
+  //   modalContainer.style.display = "block";
+  // });
+  // closeBtn.addEventListener("click", () => {
+  //   modalContainer.style.display = "none";
+  // });
+  // window.onclick = (e) => {
+  //   if (e.target == modalContainer) {
+  //     modalContainer.style.display = "none";
+  //   }
+  // };
 }
 articleSpesific();
-
-
 
 // // zoom in a imgae---------------------
