@@ -46,14 +46,23 @@ async function articleSpesific() {
                                   <div>
                                   <h2>${blogData.title.rendered}</h2>
                                   <p>${blogData.acf.articles}</p>
-                                  </div> `;
+                                  </div> 
+                                  <div class="modal-container">
+                                    <div class="modal">
+                                      <img src="${blogData.featured_media_src_url}" alt="">
+                                      <span class="close">&times;</span>
+                                    </div>
+                                  </div`;
 
                   
   } catch (e) {}
   const imgScale = document.querySelector(".img-container");
     imgScale.addEventListener("click", () => {
-       imgScale.classList.toggle("img-scale");
+       imgScale.classList.add("img-scale");
     }); 
+    window.addEventListener("click", () =>{
+      imgScale.classList.remove("img-scale")
+    })
   
 }
 articleSpesific();

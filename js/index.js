@@ -60,21 +60,17 @@ const slides = document.querySelectorAll(".carousel-post");
 const totalSlides = slides.length;
 const leftButton = document.querySelector(".carousel-button-left");
 const rightButton = document.querySelector(".carousel-button-right");
-// test av nav dott---------------
-let dottPos = 0;
+
 const carouselDott = document.querySelector(".carousel-dott");
-const selectetDott = document.querySelector(".dott-selected");
-const dott = Array.from(carouselDott.children);
-const testDott = document.querySelectorAll(".dott");
-console.log(dott);
+const dotts = Array.from(carouselDott.children);
+const dott = document.querySelector(".dott")
 
-// når jeg trykker på en av dot så skifter de farge
-
-// når dott blir tykket bytter man bilde
-
-// når man trykker på knappene skifter dott
-
-// ------------------------------------
+const updatedotts = () =>{
+  for (let dott of dotts){
+    dott.classList.remove("dott-selected")
+  }
+  dotts[slidePos].classList.add("dott-selected")
+}
 
 leftButton.addEventListener("click", () => {
   prevSlide();
@@ -99,6 +95,7 @@ const nextSlide = () => {
     slidePos++;
   }
   updateSlides();
+  updatedotts();
 };
 
 const prevSlide = () => {
@@ -108,6 +105,7 @@ const prevSlide = () => {
     slidePos--;
   }
   updateSlides();
+  updatedotts();
 };
 
 // setInterval(() => {
