@@ -47,7 +47,6 @@ listArticles();
 const loadMorebutton = document.querySelector(".load-more");
 const loadMoreUrl =
   "https://beardland.hols.no/wp-json/wp/v2/posts/?per_page=14";
-console.log(loadMoreUrl);
 
 loadMorebutton.addEventListener("click", () => {
   loadMore();

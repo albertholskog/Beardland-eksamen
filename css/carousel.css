@@ -12,6 +12,7 @@ max-width til det samme som den oppe og høyde auto */
   max-width: 1400px;
   position: relative;
   margin: auto;
+  margin-bottom: 4vh;
 }
 
 .carousel-post,

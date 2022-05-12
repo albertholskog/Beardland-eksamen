@@ -1,6 +1,6 @@
 header {
   background-color: var(--dark);
-  margin-bottom: 2vh;
+  margin-bottom: 4vh;
 }
 li {
   list-style: none;
@@ -17,7 +17,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px 5px;
+  margin: 0 8vw;
 }
 .header-nav-menu {
   display: flex;
@@ -34,12 +34,17 @@ a {
 }
 .header-logo-name h1 {
   font-family: "northash";
-  font-size: 2rem;
+  font-weight: 500;
+  font-size: clamp(1.7rem, 3vw, 3rem);
   margin-left: 10px;
 }
+
+/* font-size: clamp(1rem, 2.5vw, 1.6rem); */
+
 .header-nav-item a {
   transition: 0.7s ease;
   font-family: "BebasNeue";
+  font-weight: 200;
   font-size: 1.25rem;
   color: var(--primary);
 }

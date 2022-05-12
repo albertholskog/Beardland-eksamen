@@ -50,21 +50,21 @@ async function articleSpesific() {
                                     </div>
                                   </div`;
   } catch (e) {}
-  // const modalContainer = document.querySelector(".modal-container");
-  // const imgaeContainer = document.querySelector(".spec-img-container");
-  // const closeBtn = document.querySelector(".close");
+  const modalContainer = document.querySelector(".modal-container");
+  const imgaeContainer = document.querySelector(".spec-img-container");
+  const closeBtn = document.querySelector(".close");
 
-  // imgaeContainer.addEventListener("click", () => {
-  //   modalContainer.style.display = "block";
-  // });
-  // closeBtn.addEventListener("click", () => {
-  //   modalContainer.style.display = "none";
-  // });
-  // window.onclick = (e) => {
-  //   if (e.target == modalContainer) {
-  //     modalContainer.style.display = "none";
-  //   }
-  // };
+  imgaeContainer.addEventListener("click", () => {
+    modalContainer.style.display = "block";
+  });
+  closeBtn.addEventListener("click", () => {
+    modalContainer.style.display = "none";
+  });
+  window.onclick = (e) => {
+    if (e.target == modalContainer) {
+      modalContainer.style.display = "none";
+    }
+  };
 }
 articleSpesific();
 
