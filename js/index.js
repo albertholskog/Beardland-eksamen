@@ -3,59 +3,64 @@ const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".header-nav-menu");
 
 hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
 });
 
 document.querySelectorAll(".nav-link").forEach((e) =>
-  e.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-  })
+    e.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    })
 );
 // --------function for henting av apiCall----------------
 const url = "https://beardland.hols.no/wp-json/wp/v2/posts/";
 
 async function apiCall(url) {
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-  } catch (e) {}
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    } catch (e) {}
 }
 
 const carouselContainerSlideOne = document.querySelector(".slide1");
 const carouselContainerSlideTwo = document.querySelector(".slide2");
 const carouselContainerSlideThree = document.querySelector(".slide3");
 const carouselContainerSlideFour = document.querySelector(".slide4");
+const carouselContainer = document.querySelector(".loader");
 
 async function carouselPostApiCall() {
-  try {
-    const blogData = await apiCall(url);
-    for (let i = 0; i < blogData.length; i++) {
-      if (i === 0) {
-        carouselContainerSlideOne.innerHTML += ` <a href="/blog-post-specific.html?id=${blogData[i].id}">
+    try {
+      const blogData = await apiCall(url);
+      for (let i = 0; i < blogData.length; i++) {
+        if (i === 0) {
+                carouselContainerSlideOne.innerHTML += ` <a href="/blog-post-specific.html?id=${blogData[i].id}">
                                                     <img src="${blogData[i].featured_media_src_url}" alt="" />
                                                     <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
                                                   </a>`;
-      } else if (i === 1) {
-        carouselContainerSlideTwo.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
+            } else if (i === 1) {
+                carouselContainerSlideTwo.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
                                                   <img src="${blogData[i].featured_media_src_url}" alt="" />
                                                   <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
                                                   </a>`;
-      } else if (i === 2) {
-        carouselContainerSlideThree.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
+            } else if (i === 2) {
+                carouselContainerSlideThree.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
                                                   <img src="${blogData[i].featured_media_src_url}" alt="" />
                                                   <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
                                                   </a>`;
-      } else if (i === 3) {
-        carouselContainerSlideFour.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
+            } else if (i === 3) {
+                carouselContainerSlideFour.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
                                                   <img src="${blogData[i].featured_media_src_url}" alt="" />
                                                   <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
                                                   </a>`;
-      }
+            }
+        }
+    } catch (e) {
+
+    } finally{
+      carouselContainer.style.display = "none";
     }
-  } catch (e) {}
 }
 carouselPostApiCall();
 
@@ -70,46 +75,46 @@ const dotts = Array.from(carouselDott.children);
 const dott = document.querySelector(".dott");
 
 const updatedotts = () => {
-  for (let dott of dotts) {
-    dott.classList.remove("dott-selected");
-  }
-  dotts[slidePos].classList.add("dott-selected");
+    for (let dott of dotts) {
+        dott.classList.remove("dott-selected");
+    }
+    dotts[slidePos].classList.add("dott-selected");
 };
 
 leftButton.addEventListener("click", () => {
-  prevSlide();
+    prevSlide();
 });
 rightButton.addEventListener("click", () => {
-  nextSlide();
+    nextSlide();
 });
 
 const updateSlides = () => {
-  for (let i = 0; i < slides.length; i++) {
-    const slideArr = slides[i];
-    slideArr.classList.remove("carousel-post-visible");
-    slideArr.classList.add("carousel-post-hidden");
-  }
-  slides[slidePos].classList.add("carousel-post-visible");
+    for (let i = 0; i < slides.length; i++) {
+        const slideArr = slides[i];
+        slideArr.classList.remove("carousel-post-visible");
+        slideArr.classList.add("carousel-post-hidden");
+    }
+    slides[slidePos].classList.add("carousel-post-visible");
 };
 
 const nextSlide = () => {
-  if (slidePos === totalSlides - 1) {
-    slidePos = 0;
-  } else {
-    slidePos++;
-  }
-  updateSlides();
-  updatedotts();
+    if (slidePos === totalSlides - 1) {
+        slidePos = 0;
+    } else {
+        slidePos++;
+    }
+    updateSlides();
+    updatedotts();
 };
 
 const prevSlide = () => {
-  if (slidePos === 0) {
-    slidePos = totalSlides - 1;
-  } else {
-    slidePos--;
-  }
-  updateSlides();
-  updatedotts();
+    if (slidePos === 0) {
+        slidePos = totalSlides - 1;
+    } else {
+        slidePos--;
+    }
+    updateSlides();
+    updatedotts();
 };
 
 // setInterval(() => {
@@ -119,10 +124,11 @@ const prevSlide = () => {
 const containerSecondary = document.querySelector(".secondary-container");
 
 async function htmlCreate() {
-  try {
-    const blogData = await apiCall(url);
+    try {
+      containerSecondary.innerHTML = "";
+        const blogData = await apiCall(url);
 
-    containerSecondary.innerHTML += `
+        containerSecondary.innerHTML += `
                                     <div class="img-container">
                                         <a href="/blog-post-specific.html?id=${blogData[5].id}">
                                           <img src="${blogData[5].featured_media_src_url}" alt="">
@@ -135,6 +141,6 @@ async function htmlCreate() {
                                           <a href="/blog-post-specific.html?id=${blogData[5].id}">Read more</a>
                                         </button>
                                     </div>`;
-  } catch (e) {}
+    } catch (e) {}
 }
 htmlCreate();
