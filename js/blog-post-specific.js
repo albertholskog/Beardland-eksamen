@@ -1,28 +1,4 @@
-// ---------------hamburger----------------
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".header-nav-menu");
-
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
-});
-
-document.querySelectorAll(".nav-link").forEach((e) =>
-  e.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-  })
-);
-// --------function for henting av apiCall----------------
-const url = "https://beardland.hols.no/wp-json/wp/v2/posts/";
-
-async function apiCall(url) {
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-  } catch (e) {}
-}
+import { apiCall } from "./component.js";
 
 const queryString = document.location.search;
 const params = new URLSearchParams(queryString);
@@ -34,6 +10,7 @@ const specContainer = document.querySelector(".specific-container");
 
 async function articleSpesific() {
   try {
+    specContainer.innerHTML = "";
     const blogData = await apiCall(idPost);
 
     specContainer.innerHTML += `  <div class="spec-img-container">
@@ -49,7 +26,10 @@ async function articleSpesific() {
                                       <span class="close">&times;</span>
                                     </div>
                                   </div`;
-  } catch (e) {}
+  } catch (e) {
+    specContainer.innerHTML = `<p class ="catch-err">
+    Error could not connect to api, try to refresh this page</p> `;
+  }
   const modalContainer = document.querySelector(".modal-container");
   const imgaeContainer = document.querySelector(".spec-img-container");
   const closeBtn = document.querySelector(".close");

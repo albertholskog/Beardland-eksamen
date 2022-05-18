@@ -1,11 +1,3 @@
-/* carousel overflow hidden 
-max-width det jeg vil den skal være 
-pos rela 
-
-
-på bilde sett width 100% 
-max-width til det samme som den oppe og høyde auto */
-
 .carousel-container {
   display: none;
   overflow: hidden;
