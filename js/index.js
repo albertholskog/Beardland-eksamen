@@ -15,22 +15,22 @@ async function carouselPostApiCall() {
     for (let i = 0; i < blogData.length; i++) {
       if (i === 0) {
         carouselContainerSlideOne.innerHTML += ` <a href="/blog-post-specific.html?id=${blogData[i].id}">
-                                                    <img src="${blogData[i].featured_media_src_url}" alt="" />
+                                                    <img src="${blogData[i].featured_media_src_url}" alt="${blogData[i].acf.alt}" />
                                                     <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
                                                   </a>`;
       } else if (i === 1) {
         carouselContainerSlideTwo.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
-                                                  <img src="${blogData[i].featured_media_src_url}" alt="" />
+                                                  <img src="${blogData[i].featured_media_src_url}" alt="${blogData[i].acf.alt}" />
                                                   <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
                                                   </a>`;
       } else if (i === 2) {
         carouselContainerSlideThree.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
-                                                  <img src="${blogData[i].featured_media_src_url}" alt="" />
+                                                  <img src="${blogData[i].featured_media_src_url}" alt="${blogData[i].acf.alt}" />
                                                   <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
                                                   </a>`;
       } else if (i === 3) {
         carouselContainerSlideFour.innerHTML += `<a href="/blog-post-specific.html?id=${blogData[i].id}">
-                                                  <img src="${blogData[i].featured_media_src_url}" alt="" />
+                                                  <img src="${blogData[i].featured_media_src_url}" alt="${blogData[i].acf.alt}" />
                                                   <h2 class="carousel-title">${blogData[i].title.rendered}</h2>
                                                   </a>`;
       }
@@ -110,7 +110,7 @@ async function htmlCreate() {
     containerSecondary.innerHTML += `
                                     <div class="img-container">
                                         <a href="/blog-post-specific.html?id=${blogData[5].id}">
-                                          <img src="${blogData[5].featured_media_src_url}" alt="">
+                                          <img src="${blogData[5].featured_media_src_url}" alt="${blogData[5].acf.alt}">
                                         </a>
                                     </div>
                                     <div>

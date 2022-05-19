@@ -14,7 +14,7 @@ async function articleSpesific() {
     const blogData = await apiCall(idPost);
 
     specContainer.innerHTML += `  <div class="spec-img-container">
-                                    <img src="${blogData.featured_media_src_url}" alt="">
+                                    <img src="${blogData.featured_media_src_url}" alt="${blogData.acf.alt}">
                                   </div>
                                   <div class= "spec-text">
                                     <h2>${blogData.title.rendered}</h2>
@@ -22,7 +22,7 @@ async function articleSpesific() {
                                   </div> 
                                   <div class="modal-container">
                                     <div class="modal">
-                                      <img src="${blogData.featured_media_src_url}" alt="">
+                                      <img src="${blogData.featured_media_src_url}" alt="${blogData.acf.alt}">
                                       <span class="close">&times;</span>
                                     </div>
                                   </div`;

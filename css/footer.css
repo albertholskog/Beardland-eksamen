@@ -13,6 +13,10 @@ footer {
   color: var(--primary);
   margin: 0 10px;
 }
+.fa-facebook-f:hover,
+.fa-instagram:hover {
+  color: var(--light);
+}
 .social-container,
 .footer-nav {
   min-width: 95px;
@@ -31,6 +35,10 @@ footer {
   text-align: center;
   color: var(--primary);
   margin-bottom: 12px;
+}
+.footer-nav a:hover {
+  color: var(--light);
+  border-bottom: 2px solid var(--light);
 }
 .footer-nav li {
   margin: 5px;

@@ -10,7 +10,7 @@ async function listArticles() {
     for (let i = 0; i < blogData.length; i++) {
       listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
                                   <h2>${blogData[i].title.rendered}</h2>
-                                  <img src="${blogData[i].featured_media_src_url}" alt="" />
+                                  <img src="${blogData[i].featured_media_src_url}" alt="${blogData[i].acf.alt}" />
                                   <button class="btn-readmore-list">Read more</button></a>
                               </div>`;
     }
@@ -38,7 +38,7 @@ async function loadMore() {
     for (let i = 10; i < blogData.length; i++) {
       listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
                                     <h2>${blogData[i].title.rendered}</h2>
-                                    <img src="${blogData[i].featured_media_src_url}" alt="" />
+                                    <img src="${blogData[i].featured_media_src_url}" alt="${blogData[i].acf.alt}" />
                                     <button class="btn-readmore-list">Read more</button></a>
                                 </div>`;
 
