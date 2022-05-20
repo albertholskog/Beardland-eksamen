@@ -42,14 +42,12 @@ async function carouselPostApiCall() {
 }
 carouselPostApiCall();
 
-let slidePos = 0;
+let carouselSlidePos = 0;
 const slides = document.querySelectorAll(".carousel-post");
-const totalSlides = slides.length;
+const carouselLength = slides.length;
 const leftButton = document.querySelector(".carousel-button-left");
 const rightButton = document.querySelector(".carousel-button-right");
 
-const carouselDott = document.querySelector(".carousel-dott");
-const dotts = Array.from(carouselDott.children);
 const dott = document.querySelectorAll(".dott");
 
 const updatedotts = () => {
@@ -57,7 +55,7 @@ const updatedotts = () => {
     const dottArr = dott[i];
     dottArr.classList.remove("dott-selected");
   }
-  dott[slidePos].classList.add("dott-selected");
+  dott[carouselSlidePos].classList.add("dott-selected");
 };
 
 leftButton.addEventListener("click", () => {
@@ -73,24 +71,24 @@ const updateSlides = () => {
     slideArr.classList.remove("carousel-post-visible");
     slideArr.classList.add("carousel-post-hidden");
   }
-  slides[slidePos].classList.add("carousel-post-visible");
+  slides[carouselSlidePos].classList.add("carousel-post-visible");
 };
 
 const nextSlide = () => {
-  if (slidePos === totalSlides - 1) {
-    slidePos = 0;
+  if (carouselSlidePos === carouselLength - 1) {
+    carouselSlidePos = 0;
   } else {
-    slidePos++;
+    carouselSlidePos++;
   }
   updateSlides();
   updatedotts();
 };
 
 const prevSlide = () => {
-  if (slidePos === 0) {
-    slidePos = totalSlides - 1;
+  if (carouselSlidePos === 0) {
+    carouselSlidePos = carouselLength - 1;
   } else {
-    slidePos--;
+    carouselSlidePos--;
   }
   updateSlides();
   updatedotts();
