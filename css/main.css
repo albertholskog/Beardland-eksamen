@@ -64,6 +64,7 @@ button {
 }
 .img-container {
   max-width: 100%;
+  height: 100%;
 }
 .img-container img {
   width: 100%;
@@ -90,12 +91,13 @@ button {
 .btn-readmore {
   background-color: transparent;
   border: 2px solid var(--dark);
-  padding: 10px 20px;
+  padding: 10px 0;
   display: block;
   margin: 0 auto;
   margin-bottom: 20px;
 }
 .btn-readmore a {
+  padding: 10px 40px;
   font-size: 1.2rem;
   color: var(--dark);
 }
@@ -356,10 +358,10 @@ button:hover::after {
   .prim-container,
   .secondary-container {
     display: grid;
-    padding: 20px 8vw;
+    padding: 0 8vw;
     place-items: center;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr;
     grid-template-areas: "one two";
   }
   .prim-container :nth-child(1),
