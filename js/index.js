@@ -6,7 +6,7 @@ const carouselContainerSlideOne = document.querySelector(".slide1");
 const carouselContainerSlideTwo = document.querySelector(".slide2");
 const carouselContainerSlideThree = document.querySelector(".slide3");
 const carouselContainerSlideFour = document.querySelector(".slide4");
-const carousel = document.querySelector("carousel-container");
+const carousel = document.querySelector(".carousel-container");
 
 async function carouselPostApiCall() {
   try {
@@ -36,8 +36,8 @@ async function carouselPostApiCall() {
       }
     }
   } catch (e) {
-    carousel.innerHTML = `<p class ="catch-err">
-      Error could not connect to api, try to refresh this page</p> `;
+    carousel.innerHTML = `<div class="catch-err"><p >
+      Error could not connect to api, try to refresh this page</p></d> `;
   }
 }
 carouselPostApiCall();
@@ -119,8 +119,8 @@ async function htmlCreate() {
                                         </button>
                                     </div>`;
   } catch (e) {
-    containerSecondary.innerHTML = `<p class ="catch-err">
-    Error could not connect to api, try to refresh this page</p> `;
+    containerSecondary.innerHTML = `<div class="catch-err"><p >
+    Error could not connect to api, try to refresh this page</p></d> `;
   }
 }
 htmlCreate();

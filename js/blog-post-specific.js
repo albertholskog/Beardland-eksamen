@@ -27,8 +27,8 @@ async function articleSpesific() {
                                     </div>
                                   </div`;
   } catch (e) {
-    specContainer.innerHTML = `<p class ="catch-err">
-    Error could not connect to api, try to refresh this page</p> `;
+    specContainer.innerHTML = `<div class="catch-err"><p >
+    Error could not connect to api, try to refresh this page</p></d> `;
   }
   const modalContainer = document.querySelector(".modal-container");
   const imgaeContainer = document.querySelector(".spec-img-container");

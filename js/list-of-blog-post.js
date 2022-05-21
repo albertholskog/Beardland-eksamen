@@ -2,6 +2,12 @@ import { url } from "./component.js";
 import { apiCall } from "./component.js";
 
 const listPost = document.querySelector(".list-container");
+const btnAllArticles = document.querySelector(".btn-all-articles");
+
+btnAllArticles.addEventListener("click", () => {
+  listArticles();
+  loadMorebutton.style.display = "block";
+});
 
 async function listArticles() {
   try {
@@ -15,8 +21,8 @@ async function listArticles() {
                               </div>`;
     }
   } catch (e) {
-    listPost.innerHTML = `<p class ="catch-err">
-    Error could not connect to api, try to refresh this page</p> `;
+    listPost.innerHTML = `<div class="catch-err"><p >
+    Error could not connect to api, try to refresh this page</p></d> `;
   }
 }
 
@@ -45,8 +51,8 @@ async function loadMore() {
       loadMorebutton.style.display = "none";
     }
   } catch (e) {
-    listPost.innerHTML = `<p class ="catch-err">
-    Error could not connect to api, try to refresh this page</p> `;
+    listPost.innerHTML = `<div class="catch-err"><p >
+    Error could not connect to api, try to refresh this page</p></d> `;
   }
 }
 
@@ -65,36 +71,17 @@ filterButtonTips.addEventListener("click", () => {
   updateFilterTips();
 });
 filterButtonGuide.addEventListener("click", () => {
-  updateFilterTips();
+  updateFilterGuide();
 });
 filterButtonProduct.addEventListener("click", () => {
-  updateFilterTips();
+  updateFilterProduct();
 });
 
 async function updateFilterTips() {
   try {
     const blogData = await apiCall(filterTipsUrl);
-    test();
-    // listPost.innerHTML = "";
-    // for (let i = 0; i < blogData.length; i++) {
-    //   const element = blogData[i];
-    //   console.log(element);
-    //   listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
-    //                             <h2>${blogData[i].title.rendered}</h2>
-    //                             <img src="${blogData[i].featured_media_src_url}" alt="${blogData[i].acf.alt}" />
-    //                             <button class="btn-readmore-list">Read more</button></a>
-    //                         </div>`;
-
-    //   loadMorebutton.style.display = "none";
-  } catch (e) {}
-}
-
-async function test() {
-  try {
     listPost.innerHTML = "";
     for (let i = 0; i < blogData.length; i++) {
-      const element = blogData[i];
-      console.log(element);
       listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
                                 <h2>${blogData[i].title.rendered}</h2>
                                 <img src="${blogData[i].featured_media_src_url}" alt="${blogData[i].acf.alt}" />
@@ -103,5 +90,44 @@ async function test() {
 
       loadMorebutton.style.display = "none";
     }
-  } catch (e) {}
+  } catch (err) {
+    listPost.innerHTML = `<div class="catch-err"><p >
+  Error could not connect to api, try to refresh this page</p></d> `;
+  }
+}
+async function updateFilterGuide() {
+  try {
+    const blogData = await apiCall(filterGuideUrl);
+    listPost.innerHTML = "";
+    for (let i = 0; i < blogData.length; i++) {
+      listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
+                                <h2>${blogData[i].title.rendered}</h2>
+                                <img src="${blogData[i].featured_media_src_url}" alt="${blogData[i].acf.alt}" />
+                                <button class="btn-readmore-list">Read more</button></a>
+                            </div>`;
+
+      loadMorebutton.style.display = "none";
+    }
+  } catch (err) {
+    listPost.innerHTML = `<div class="catch-err"><p >
+    Error could not connect to api, try to refresh this page</p></d> `;
+  }
+}
+async function updateFilterProduct() {
+  try {
+    const blogData = await apiCall(filterProductUrl);
+    listPost.innerHTML = "";
+    for (let i = 0; i < blogData.length; i++) {
+      listPost.innerHTML += ` <div class="card"><a href="/blog-post-specific.html?id=${blogData[i].id}">
+                                <h2>${blogData[i].title.rendered}</h2>
+                                <img src="${blogData[i].featured_media_src_url}" alt="${blogData[i].acf.alt}" />
+                                <button class="btn-readmore-list">Read more</button></a>
+                            </div>`;
+
+      loadMorebutton.style.display = "none";
+    }
+  } catch (err) {
+    listPost.innerHTML = `<div class="catch-err"><p >
+    Error could not connect to api, try to refresh this page</p></d> `;
+  }
 }

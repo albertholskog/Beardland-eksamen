@@ -1,4 +1,4 @@
-export const url = "https://beardland.hols.no/wp-json/wp/v2/posts/";
+export const url = "https://beardland.hols.no/wp-json/wp/v2/posts/?per_page=10";
 
 export async function apiCall(url) {
   try {
