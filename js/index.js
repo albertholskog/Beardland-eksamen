@@ -94,9 +94,9 @@ const prevSlide = () => {
   updatedotts();
 };
 
-// setInterval(() => {
-//   nextSlide();
-// }, 7000);
+setInterval(() => {
+  nextSlide();
+}, 7000);
 
 const containerSecondary = document.querySelector(".secondary-container");
 

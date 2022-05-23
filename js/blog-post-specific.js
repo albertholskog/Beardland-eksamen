@@ -47,5 +47,3 @@ async function articleSpesific() {
   };
 }
 articleSpesific();
-
-// // zoom in a imgae---------------------
