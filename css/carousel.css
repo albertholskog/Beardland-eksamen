@@ -48,6 +48,8 @@
   position: absolute;
   top: 85%;
   width: 100%;
+  /* pga designet valgte jeg å sette den til 0.8 men den
+   kan også sette det til 1 for å fulge wcag, skrevet mer om dette i rapporten  */
   background-color: rgba(24, 29, 38, 0.8);
   color: var(--light);
   text-align: center;
