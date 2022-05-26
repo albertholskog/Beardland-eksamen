@@ -102,7 +102,7 @@ const containerSecondary = document.querySelector(".secondary-container");
 
 async function htmlCreate() {
   try {
-    loaderContainer.innerHTML = "";
+    containerSecondary.innerHTML = "";
     const blogData = await apiCall(url);
 
     containerSecondary.innerHTML += `
