@@ -96,13 +96,13 @@ const prevSlide = () => {
 
 setInterval(() => {
   nextSlide();
-}, 7000);
+}, 8000);
 
 const containerSecondary = document.querySelector(".secondary-container");
 
 async function htmlCreate() {
   try {
-    containerSecondary.innerHTML = "";
+    loaderContainer.innerHTML = "";
     const blogData = await apiCall(url);
 
     containerSecondary.innerHTML += `
