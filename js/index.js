@@ -47,7 +47,6 @@ const slides = document.querySelectorAll(".carousel-post");
 const carouselLength = slides.length;
 const leftButton = document.querySelector(".carousel-button-left");
 const rightButton = document.querySelector(".carousel-button-right");
-
 const dott = document.querySelectorAll(".dott");
 
 const updatedotts = () => {
