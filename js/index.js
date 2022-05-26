@@ -10,7 +10,7 @@ const carousel = document.querySelector(".carousel-container");
 
 async function carouselPostApiCall() {
   try {
-    carousel.style.display = "none";
+    loaderContainer.style.display = "none";
     const blogData = await apiCall(url);
     for (let i = 0; i < blogData.length; i++) {
       if (i === 0) {
