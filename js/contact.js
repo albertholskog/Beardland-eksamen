@@ -16,7 +16,7 @@ const emailErr = document.querySelector("#email-err");
 const validForm = (e) => {
   e.preventDefault();
 
-  if (checkLength(fullName.value, 1)) {
+  if (checkLength(fullName.value, 6)) {
     fullNameErr.style.display = "none";
   } else {
     fullNameErr.style.display = "block";
@@ -26,12 +26,12 @@ const validForm = (e) => {
   } else {
     emailErr.style.display = "block";
   }
-  if (checkLength(subject.value, 15)) {
+  if (checkLength(subject.value, 16)) {
     subjectErr.style.display = "none";
   } else {
     subjectErr.style.display = "block";
   }
-  if (checkLength(messages.value, 25)) {
+  if (checkLength(messages.value, 26)) {
     messagesErr.style.display = "none";
   } else {
     messagesErr.style.display = "block";
